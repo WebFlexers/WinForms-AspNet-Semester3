@@ -25,6 +25,7 @@ namespace Assignment1.Sections
             Responsive.ScaleControls(newSize);
         }
 
+        #region Button Click Events
         private void pictureBoxBrowse_Click(object sender, EventArgs e)
         {
             var userResponse = folderBrowserDialog.ShowDialog();
@@ -64,9 +65,11 @@ namespace Assignment1.Sections
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             FormMain form = (FormMain)Application.OpenForms[0];
-            form.SendControlToBack(this);
+            form.ShowMainMenu();
         }
+        #endregion
 
+        #region Button Effects
         // Hover effects
         private void pictureBoxBrowse_MouseEnter(object sender, EventArgs e)
         {
@@ -79,17 +82,6 @@ namespace Assignment1.Sections
             pictureBoxBrowse.Image = Properties.Resources.button_square_browse;
         }
 
-        private void pictureBoxBack_MouseEnter(object sender, EventArgs e)
-        {
-            pictureBoxBack.Image = Properties.Resources.button_square_back_hover;
-            Sound.PlayEffect(Sound.Effect.ButtonHover);
-        }
-
-        private void pictureBoxBack_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBoxBack.Image = Properties.Resources.button_square_back;
-        }       
-
         private void pictureBoxResetPath_MouseEnter(object sender, EventArgs e)
         {
             pictureBoxResetPath.Image = Properties.Resources.button_square_reset_hover;
@@ -100,5 +92,17 @@ namespace Assignment1.Sections
         {
             pictureBoxResetPath.Image = Properties.Resources.button_square_reset;
         }
+
+        private void pictureBoxBack_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBoxBack.Image = Properties.Resources.button_square_back_hover;
+            Sound.PlayEffect(Sound.Effect.ButtonHover);
+        }
+
+        private void pictureBoxBack_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBoxBack.Image = Properties.Resources.button_square_back;
+        }
+        #endregion
     }
 }

@@ -27,6 +27,7 @@ namespace Assignment1
             Sound.PlaySong(Sound.Song.Menu);
         }
 
+        #region Responsiveness
         public void ResizeUI(Size newSize)
         {
             Responsive.ScaleControls(this.Size);
@@ -61,15 +62,20 @@ namespace Assignment1
             }
                 
         }
+        #endregion
 
+        #region Menu Buttons
         // Menu Function
         private void pictureBoxPlay_Click(object sender, EventArgs e)
         {
-            if (game.LoadImages())
-            {
-                Sound.FadeInSong(Sound.Song.Game);
-                game.BringToFront();
-            }
+            login.BringToFront();
+        }
+
+        private void pictureBoxScoreboard_Click(object sender, EventArgs e)
+        {
+            scoreboard.LoadScoreboard();
+            Sound.FadeInSong(Sound.Song.Victory, 750);
+            scoreboard.BringToFront();
         }
 
         private void pictureBoxOptions_Click(object sender, EventArgs e)
@@ -81,7 +87,9 @@ namespace Assignment1
         {
             timerFadeOnExit.Start();
         }
+        #endregion
 
+        #region Fade Effects
         private void timerFadeOnExit_Tick(object sender, EventArgs e)
         {
             if (this.Opacity > 0)
@@ -92,19 +100,44 @@ namespace Assignment1
             {
                 timerFadeOnExit.Stop();
                 Application.Exit();
-            }   
+            }
         }
 
-        public void SendControlToBack(Control control)
+        #endregion
+
+        #region Page Control
+        public void ShowScoreboard()
         {
-            control.SendToBack();
-        }
-        
-        public void BringControlToFront(Control control)
-        {
-            control.BringToFront();
+            scoreboard.LoadScoreboard();
+            scoreboard.BringToFront();
         }
 
+        public void ShowOptions()
+        {
+            options.BringToFront();
+        }
+
+        public void ShowMainMenu()
+        {
+            panelMenu.BringToFront();
+        }
+
+        public void ShowLoginScreen()
+        {
+            login.BringToFront();
+        }
+
+        public void PlayGame(string username)
+        {
+            if (game.LoadGame(username))
+            {
+                Sound.FadeInSong(Sound.Song.Game, 1000);
+                game.BringToFront();
+            }
+        }
+        #endregion
+
+        #region Button Effects
         // Menu buttons hover and sound effects
         private void pictureBoxPlay_MouseEnter(object sender, EventArgs e)
         {
@@ -115,6 +148,17 @@ namespace Assignment1
         private void pictureBoxPlay_MouseLeave(object sender, EventArgs e)
         {
             pictureBoxPlay.Image = Properties.Resources.button_square_play;
+        }
+
+        private void pictureBoxScoreboard_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBoxScoreboard.Image = Properties.Resources.button_square_scoreboard_hover;
+            Sound.PlayEffect(Sound.Effect.ButtonHover);
+        }
+
+        private void pictureBoxScoreboard_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBoxScoreboard.Image = Properties.Resources.button_square_scoreboard;
         }
 
         private void pictureBoxOptions_MouseEnter(object sender, EventArgs e)
@@ -138,7 +182,7 @@ namespace Assignment1
         {
             pictureBoxExit.Image = Properties.Resources.button_square_exit;
         }
-
+        #endregion
         
     }
 }

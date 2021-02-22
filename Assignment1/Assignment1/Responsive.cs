@@ -59,23 +59,27 @@ namespace Assignment1
         {
             foreach (Control control in controlCollection)
             {
-                initialControlSizes.Add(control, control.Size);
-
-                Ratio controlToContainerWidth = new Ratio(control.Width, initialContainerSize.Width);
-                Ratio controlToContainerHeight = new Ratio(control.Height, initialContainerSize.Height);
-                controlToContainerWidthRatios.Add(control, controlToContainerWidth);
-                controlToContainerHeightRatios.Add(control, controlToContainerHeight);
-
-                Ratio controlToContainerX = new Ratio(control.Left, initialContainerSize.Width);
-                Ratio controlToContainerY = new Ratio(control.Top, initialContainerSize.Height);
-                controlToContainerXRatios.Add(control, controlToContainerX);
-                controlToContainerYRatios.Add(control, controlToContainerY);
+                StoreControl(control);
 
                 if (control is Panel)
                     Store(control.Controls);
             }
         }
 
+        public void StoreControl(Control control)
+        {
+            initialControlSizes.Add(control, control.Size);
+
+            Ratio controlToContainerWidth = new Ratio(control.Width, initialContainerSize.Width);
+            Ratio controlToContainerHeight = new Ratio(control.Height, initialContainerSize.Height);
+            controlToContainerWidthRatios.Add(control, controlToContainerWidth);
+            controlToContainerHeightRatios.Add(control, controlToContainerHeight);
+
+            Ratio controlToContainerX = new Ratio(control.Left, initialContainerSize.Width);
+            Ratio controlToContainerY = new Ratio(control.Top, initialContainerSize.Height);
+            controlToContainerXRatios.Add(control, controlToContainerX);
+            controlToContainerYRatios.Add(control, controlToContainerY);
+        }
 
         public void ScaleControls(Size newSize)
         {

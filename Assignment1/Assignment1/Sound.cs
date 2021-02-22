@@ -15,7 +15,6 @@ namespace Assignment1
         public static bool AreSoundEffectsOn { get; set; } = true;
 
         private static System.Windows.Forms.Timer timerFade = new System.Windows.Forms.Timer();
-        private static readonly int FADE_DURATION = 1500;
 
         static Sound()
         {
@@ -31,6 +30,7 @@ namespace Assignment1
             { 
                 Path = filePath;
                 Player = new WindowsMediaPlayer();
+                Player.settings.volume = 60;
                 Player.URL = Path;
                 Player.settings.setMode("loop", true);
             }
@@ -41,7 +41,8 @@ namespace Assignment1
 
             // All songs
             public static Song Menu { get { return new Song(@"Music\menu.mp3"); } }
-            public static Song Game { get { return new Song(@"Music\game.mp3"); } } 
+            public static Song Game { get { return new Song(@"Music\game.mp3"); } }
+            public static Song Victory { get { return new Song(@"Music\victory.mp3"); } }
         }
 
         public class Effect
@@ -50,6 +51,7 @@ namespace Assignment1
             {
                 Path = filePath;
                 Player = new WindowsMediaPlayer();
+                Player.settings.volume = 60;
                 Player.settings.autoStart = false;
                 Player.URL = Path;
                 Player.settings.setMode("loop", false);
@@ -79,19 +81,14 @@ namespace Assignment1
             requestedSong.Player.controls.play();
         }
 
-        public static void FadeInSong(Song song)
+        public static void FadeInSong(Song song, int duration)
         {
             requestedSong = song;
             requestedSong.Player.settings.volume = 0;
 
-            timerFade.Interval = FADE_DURATION / 100;
+            timerFade.Interval = duration / 100; // Because max volume is 100
             timerFade.Start();
         }
-
-        //public static void FadeOut()
-        //{
-        //    if (currentSong != null)
-        //}
 
         private static void timerFade_Tick(object sender, EventArgs e)
         {

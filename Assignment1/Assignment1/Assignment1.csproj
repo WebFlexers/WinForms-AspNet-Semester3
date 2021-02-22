@@ -55,9 +55,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoubleBufferPanel.cs">
+    <Compile Include="CustomControl\Champion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\Champion.Designer.cs">
+      <DependentUpon>Champion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\DoubleBufferPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomControl\IPlayer.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,7 +72,26 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="GameSettings.cs" />
+    <Compile Include="CustomControl\PlayerModel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\PlayerModel.Designer.cs">
+      <DependentUpon>PlayerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Player.cs" />
     <Compile Include="Responsive.cs" />
+    <Compile Include="Sections\FormGameMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sections\FormGameMenu.Designer.cs">
+      <DependentUpon>FormGameMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sections\FormMask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sections\FormMask.Designer.cs">
+      <DependentUpon>FormMask.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sections\Game.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -84,15 +110,27 @@
     <Compile Include="Sections\Options.Designer.cs">
       <DependentUpon>Options.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sections\Scoreboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sections\Scoreboard.Designer.cs">
+      <DependentUpon>Scoreboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sound.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Speaker.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="CustomControl\Champion.resx">
+      <DependentUpon>Champion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\PlayerModel.resx">
+      <DependentUpon>PlayerModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,6 +142,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Sections\FormGameMenu.resx">
+      <DependentUpon>FormGameMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sections\FormMask.resx">
+      <DependentUpon>FormMask.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sections\Game.resx">
       <DependentUpon>Game.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sections\Options.resx">
       <DependentUpon>Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sections\Scoreboard.resx">
+      <DependentUpon>Scoreboard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -199,6 +246,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\button_square_reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wooden_frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\champion_frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\escape_menu_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_square_scoreboard_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_square_scoreboard.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
