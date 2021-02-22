@@ -39,7 +39,6 @@ C:\Users\kkalo\OneDrive\Documents\GitHub\WinformsFinal\Assignment2\Ghess\bin\Deb
 C:\Users\kkalo\OneDrive\Documents\GitHub\WinformsFinal\Assignment2\Ghess\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\kkalo\OneDrive\Documents\GitHub\WinformsFinal\Assignment2\Ghess\bin\Debug\System.Data.SQLite.xml
 C:\Users\kkalo\OneDrive\Documents\GitHub\WinformsFinal\Assignment2\Ghess\obj\Debug\Ghess.csprojAssemblyReference.cache
-C:\Users\kkalo\OneDrive\Documents\GitHub\WinformsFinal\Assignment2\Ghess\obj\Debug\Ghess.Form1.resources
 C:\Users\kkalo\OneDrive\Documents\GitHub\WinformsFinal\Assignment2\Ghess\obj\Debug\Ghess.Properties.Resources.resources
 C:\Users\kkalo\OneDrive\Documents\GitHub\WinformsFinal\Assignment2\Ghess\obj\Debug\Ghess.csproj.GenerateResource.cache
 C:\Users\kkalo\OneDrive\Documents\GitHub\WinformsFinal\Assignment2\Ghess\obj\Debug\Ghess.csproj.CoreCompileInputs.cache
@@ -65,3 +64,4 @@ C:\Users\sofie\Desktop\Assignment2\Ghess\obj\Debug\Ghess.csproj.CopyComplete
 C:\Users\sofie\Desktop\Assignment2\Ghess\obj\Debug\Ghess.exe
 C:\Users\sofie\Desktop\Assignment2\Ghess\obj\Debug\Ghess.pdb
 C:\Users\sofie\Desktop\Assignment2\Ghess\obj\Debug\Ghess.Chess.resources
+C:\Users\kkalo\OneDrive\Documents\GitHub\WinformsFinal\Assignment2\Ghess\obj\Debug\Ghess.Chess.resources
