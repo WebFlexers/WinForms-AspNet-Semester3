@@ -21,5 +21,10 @@ C:\Users\Michalis\Documents\GitHub\WinformsFinal\Assignment1\Assignment1\obj\Deb
 C:\Users\Michalis\Documents\GitHub\WinformsFinal\Assignment1\Assignment1\obj\Debug\Assignment1.csproj.ResolveComReference.cache
 C:\Users\Michalis\Documents\GitHub\WinformsFinal\Assignment1\Assignment1\obj\Debug\Assignment1.Sections.Options.resources
 C:\Users\Michalis\Documents\GitHub\WinformsFinal\Assignment1\Assignment1\obj\Debug\Assignment1.Sections.Game.resources
-C:\Users\Michalis\Documents\GitHub\WinformsFinal\Assignment1\Assignment1\obj\Debug\Assignment1.csprojAssemblyReference.cache
 C:\Users\Michalis\Documents\GitHub\WinformsFinal\Assignment1\Assignment1\obj\Debug\Assignment1.Sections.Login.resources
+C:\Users\Michalis\Documents\GitHub\WinformsFinal\Assignment1\Assignment1\obj\Debug\Assignment1.PlayerModel.resources
+C:\Users\Michalis\Documents\GitHub\WinformsFinal\Assignment1\Assignment1\obj\Debug\Assignment1.Sections.Scoreboard.resources
+C:\Users\Michalis\Documents\GitHub\WinformsFinal\Assignment1\Assignment1\obj\Debug\Assignment1.Champion.resources
+C:\Users\Michalis\Documents\GitHub\WinformsFinal\Assignment1\Assignment1\obj\Debug\Assignment1.Sections.FormGameMenu.resources
+C:\Users\Michalis\Documents\GitHub\WinformsFinal\Assignment1\Assignment1\obj\Debug\Assignment1.Sections.FormMask.resources
+C:\Users\Michalis\Documents\GitHub\WinformsFinal\Assignment1\Assignment1\obj\Debug\Assignment1.csprojAssemblyReference.cache

@@ -29,6 +29,7 @@ namespace Assignment1.Sections
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.speaker = new Assignment1.Speaker();
             this.pictureBoxCard16 = new Assignment1.Sections.Card();
@@ -47,6 +48,9 @@ namespace Assignment1.Sections
             this.pictureBoxCard5 = new Assignment1.Sections.Card();
             this.pictureBoxCard2 = new Assignment1.Sections.Card();
             this.pictureBoxCard1 = new Assignment1.Sections.Card();
+            this.timerCountTime = new System.Windows.Forms.Timer(this.components);
+            this.timerFade = new System.Windows.Forms.Timer(this.components);
+            this.labelTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.speaker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard15)).BeginInit();
@@ -89,6 +93,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard16.TabIndex = 15;
             this.pictureBoxCard16.TabStop = false;
+            this.pictureBoxCard16.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard15
             // 
@@ -101,6 +106,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard15.TabIndex = 14;
             this.pictureBoxCard15.TabStop = false;
+            this.pictureBoxCard15.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard14
             // 
@@ -113,6 +119,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard14.TabIndex = 13;
             this.pictureBoxCard14.TabStop = false;
+            this.pictureBoxCard14.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard12
             // 
@@ -125,6 +132,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard12.TabIndex = 12;
             this.pictureBoxCard12.TabStop = false;
+            this.pictureBoxCard12.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard11
             // 
@@ -137,6 +145,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard11.TabIndex = 11;
             this.pictureBoxCard11.TabStop = false;
+            this.pictureBoxCard11.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard10
             // 
@@ -149,6 +158,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard10.TabIndex = 10;
             this.pictureBoxCard10.TabStop = false;
+            this.pictureBoxCard10.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard8
             // 
@@ -161,6 +171,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard8.TabIndex = 9;
             this.pictureBoxCard8.TabStop = false;
+            this.pictureBoxCard8.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard7
             // 
@@ -173,6 +184,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard7.TabIndex = 8;
             this.pictureBoxCard7.TabStop = false;
+            this.pictureBoxCard7.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard6
             // 
@@ -185,6 +197,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard6.TabIndex = 7;
             this.pictureBoxCard6.TabStop = false;
+            this.pictureBoxCard6.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard4
             // 
@@ -197,6 +210,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard4.TabIndex = 6;
             this.pictureBoxCard4.TabStop = false;
+            this.pictureBoxCard4.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard3
             // 
@@ -209,6 +223,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard3.TabIndex = 5;
             this.pictureBoxCard3.TabStop = false;
+            this.pictureBoxCard3.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard13
             // 
@@ -221,6 +236,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard13.TabIndex = 4;
             this.pictureBoxCard13.TabStop = false;
+            this.pictureBoxCard13.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard9
             // 
@@ -233,6 +249,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard9.TabIndex = 3;
             this.pictureBoxCard9.TabStop = false;
+            this.pictureBoxCard9.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard5
             // 
@@ -245,6 +262,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard5.TabIndex = 2;
             this.pictureBoxCard5.TabStop = false;
+            this.pictureBoxCard5.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard2
             // 
@@ -257,6 +275,7 @@ namespace Assignment1.Sections
             this.pictureBoxCard2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard2.TabIndex = 1;
             this.pictureBoxCard2.TabStop = false;
+            this.pictureBoxCard2.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
             // 
             // pictureBoxCard1
             // 
@@ -269,6 +288,25 @@ namespace Assignment1.Sections
             this.pictureBoxCard1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCard1.TabIndex = 0;
             this.pictureBoxCard1.TabStop = false;
+            this.pictureBoxCard1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCardPaint);
+            // 
+            // timerCountTime
+            // 
+            this.timerCountTime.Interval = 1000;
+            this.timerCountTime.Tick += new System.EventHandler(this.timerCountTime_Tick);
+            // 
+            // labelTime
+            // 
+            this.labelTime.BackColor = System.Drawing.Color.Transparent;
+            this.labelTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelTime.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(193)))), ((int)(((byte)(238)))));
+            this.labelTime.Location = new System.Drawing.Point(3, 0);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(123, 40);
+            this.labelTime.TabIndex = 18;
+            this.labelTime.Text = "00.00.00";
+            this.labelTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Game
             // 
@@ -276,6 +314,7 @@ namespace Assignment1.Sections
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Assignment1.Properties.Resources.amphitheater;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.labelTime);
             this.Controls.Add(this.speaker);
             this.Controls.Add(this.pictureBoxCard16);
             this.Controls.Add(this.pictureBoxCard15);
@@ -296,6 +335,7 @@ namespace Assignment1.Sections
             this.DoubleBuffered = true;
             this.Name = "Game";
             this.Size = new System.Drawing.Size(1200, 800);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.speaker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard15)).EndInit();
@@ -336,5 +376,8 @@ namespace Assignment1.Sections
         private Card pictureBoxCard15;
         private Card pictureBoxCard14;
         private Speaker speaker;
+        private System.Windows.Forms.Timer timerCountTime;
+        private System.Windows.Forms.Timer timerFade;
+        private System.Windows.Forms.Label labelTime;
     }
 }

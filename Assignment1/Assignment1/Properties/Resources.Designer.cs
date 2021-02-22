@@ -193,9 +193,59 @@ namespace Assignment1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap button_square_scoreboard {
+            get {
+                object obj = ResourceManager.GetObject("button_square_scoreboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_square_scoreboard_hover {
+            get {
+                object obj = ResourceManager.GetObject("button_square_scoreboard_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap card_back_small {
             get {
                 object obj = ResourceManager.GetObject("card_back_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap champion_frame {
+            get {
+                object obj = ResourceManager.GetObject("champion_frame", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap champion_frame1 {
+            get {
+                object obj = ResourceManager.GetObject("champion_frame1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap escape_menu_background {
+            get {
+                object obj = ResourceManager.GetObject("escape_menu_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +276,16 @@ namespace Assignment1.Properties {
         internal static System.Drawing.Bitmap University_of_Piraeus_Banner {
             get {
                 object obj = ResourceManager.GetObject("University-of-Piraeus-Banner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wooden_frame {
+            get {
+                object obj = ResourceManager.GetObject("wooden_frame", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

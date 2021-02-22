@@ -33,13 +33,17 @@ namespace Assignment1
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.timerFadeOnExit = new System.Windows.Forms.Timer(this.components);
             this.panelMenu = new Assignment1.DoubleBufferPanel();
+            this.pictureBoxScoreboard = new System.Windows.Forms.PictureBox();
             this.speaker = new Assignment1.Speaker();
             this.pictureBoxExit = new System.Windows.Forms.PictureBox();
             this.pictureBoxOptions = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlay = new System.Windows.Forms.PictureBox();
-            this.game = new Assignment1.Sections.Game();
+            this.login = new Assignment1.Sections.Login();
             this.options = new Assignment1.Sections.Options();
+            this.game = new Assignment1.Sections.Game();
+            this.scoreboard = new Assignment1.Sections.Scoreboard();
             this.panelMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScoreboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speaker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOptions)).BeginInit();
@@ -55,6 +59,7 @@ namespace Assignment1
             // 
             this.panelMenu.BackColor = System.Drawing.Color.Transparent;
             this.panelMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelMenu.Controls.Add(this.pictureBoxScoreboard);
             this.panelMenu.Controls.Add(this.speaker);
             this.panelMenu.Controls.Add(this.pictureBoxExit);
             this.panelMenu.Controls.Add(this.pictureBoxOptions);
@@ -64,6 +69,21 @@ namespace Assignment1
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(1200, 800);
             this.panelMenu.TabIndex = 3;
+            // 
+            // pictureBoxScoreboard
+            // 
+            this.pictureBoxScoreboard.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxScoreboard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxScoreboard.Image = global::Assignment1.Properties.Resources.button_square_scoreboard;
+            this.pictureBoxScoreboard.Location = new System.Drawing.Point(426, 253);
+            this.pictureBoxScoreboard.Name = "pictureBoxScoreboard";
+            this.pictureBoxScoreboard.Size = new System.Drawing.Size(348, 138);
+            this.pictureBoxScoreboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxScoreboard.TabIndex = 4;
+            this.pictureBoxScoreboard.TabStop = false;
+            this.pictureBoxScoreboard.Click += new System.EventHandler(this.pictureBoxScoreboard_Click);
+            this.pictureBoxScoreboard.MouseEnter += new System.EventHandler(this.pictureBoxScoreboard_MouseEnter);
+            this.pictureBoxScoreboard.MouseLeave += new System.EventHandler(this.pictureBoxScoreboard_MouseLeave);
             // 
             // speaker
             // 
@@ -81,7 +101,7 @@ namespace Assignment1
             this.pictureBoxExit.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxExit.Image = global::Assignment1.Properties.Resources.button_square_exit;
-            this.pictureBoxExit.Location = new System.Drawing.Point(426, 446);
+            this.pictureBoxExit.Location = new System.Drawing.Point(426, 567);
             this.pictureBoxExit.Name = "pictureBoxExit";
             this.pictureBoxExit.Size = new System.Drawing.Size(348, 138);
             this.pictureBoxExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -96,7 +116,7 @@ namespace Assignment1
             this.pictureBoxOptions.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxOptions.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxOptions.Image = global::Assignment1.Properties.Resources.button_square_options;
-            this.pictureBoxOptions.Location = new System.Drawing.Point(426, 281);
+            this.pictureBoxOptions.Location = new System.Drawing.Point(426, 410);
             this.pictureBoxOptions.Name = "pictureBoxOptions";
             this.pictureBoxOptions.Size = new System.Drawing.Size(348, 138);
             this.pictureBoxOptions.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -111,7 +131,7 @@ namespace Assignment1
             this.pictureBoxPlay.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxPlay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxPlay.Image = global::Assignment1.Properties.Resources.button_square_play;
-            this.pictureBoxPlay.Location = new System.Drawing.Point(426, 116);
+            this.pictureBoxPlay.Location = new System.Drawing.Point(426, 96);
             this.pictureBoxPlay.Name = "pictureBoxPlay";
             this.pictureBoxPlay.Size = new System.Drawing.Size(348, 138);
             this.pictureBoxPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -121,14 +141,15 @@ namespace Assignment1
             this.pictureBoxPlay.MouseEnter += new System.EventHandler(this.pictureBoxPlay_MouseEnter);
             this.pictureBoxPlay.MouseLeave += new System.EventHandler(this.pictureBoxPlay_MouseLeave);
             // 
-            // game
+            // login
             // 
-            this.game.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("game.BackgroundImage")));
-            this.game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.game.Location = new System.Drawing.Point(0, 0);
-            this.game.Name = "game";
-            this.game.Size = new System.Drawing.Size(1200, 800);
-            this.game.TabIndex = 4;
+            this.login.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("login.BackgroundImage")));
+            this.login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.login.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.login.Location = new System.Drawing.Point(0, 0);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(1200, 800);
+            this.login.TabIndex = 4;
             // 
             // options
             // 
@@ -141,6 +162,26 @@ namespace Assignment1
             this.options.Size = new System.Drawing.Size(1200, 800);
             this.options.TabIndex = 4;
             // 
+            // game
+            // 
+            this.game.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("game.BackgroundImage")));
+            this.game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.game.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.game.Location = new System.Drawing.Point(0, 0);
+            this.game.Name = "game";
+            this.game.Size = new System.Drawing.Size(1200, 800);
+            this.game.TabIndex = 4;
+            // 
+            // scoreboard
+            // 
+            this.scoreboard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("scoreboard.BackgroundImage")));
+            this.scoreboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.scoreboard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scoreboard.Location = new System.Drawing.Point(0, 0);
+            this.scoreboard.Name = "scoreboard";
+            this.scoreboard.Size = new System.Drawing.Size(1200, 800);
+            this.scoreboard.TabIndex = 4;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,8 +190,10 @@ namespace Assignment1
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1200, 800);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.game);
+            this.Controls.Add(this.login);
             this.Controls.Add(this.options);
+            this.Controls.Add(this.game);
+            this.Controls.Add(this.scoreboard);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMain";
@@ -159,6 +202,7 @@ namespace Assignment1
             this.ResizeEnd += new System.EventHandler(this.FormMain_ResizeEnd);
             this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
             this.panelMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScoreboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.speaker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOptions)).EndInit();
@@ -177,6 +221,9 @@ namespace Assignment1
         private Sections.Options options;
         private Sections.Game game;
         private System.Windows.Forms.Timer timerFadeOnExit;
+        private Sections.Login login;
+        private Sections.Scoreboard scoreboard;
+        private System.Windows.Forms.PictureBox pictureBoxScoreboard;
     }
 }
 
