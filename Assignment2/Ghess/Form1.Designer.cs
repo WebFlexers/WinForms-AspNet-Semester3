@@ -1,7 +1,7 @@
 ﻿
 namespace Ghess
 {
-    partial class Form1
+    partial class Chess
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,9 @@ namespace Ghess
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Chess));
             this.boardPanel = new System.Windows.Forms.Panel();
+            this.endGameLbl = new System.Windows.Forms.Label();
             this.QueenB = new System.Windows.Forms.PictureBox();
             this.KingB = new System.Windows.Forms.PictureBox();
             this.BishopB1 = new System.Windows.Forms.PictureBox();
@@ -82,6 +83,8 @@ namespace Ghess
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.chessPanel = new System.Windows.Forms.Panel();
+            this.giveUpWbtn = new System.Windows.Forms.Button();
+            this.giveUpBbtn = new System.Windows.Forms.Button();
             this.returnBtn = new System.Windows.Forms.Button();
             this.timeWLbl = new System.Windows.Forms.Label();
             this.timeBLbl = new System.Windows.Forms.Label();
@@ -137,6 +140,7 @@ namespace Ghess
             this.boardPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("boardPanel.BackgroundImage")));
             this.boardPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.boardPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.boardPanel.Controls.Add(this.endGameLbl);
             this.boardPanel.Controls.Add(this.QueenB);
             this.boardPanel.Controls.Add(this.KingB);
             this.boardPanel.Controls.Add(this.BishopB1);
@@ -174,6 +178,19 @@ namespace Ghess
             this.boardPanel.Name = "boardPanel";
             this.boardPanel.Size = new System.Drawing.Size(799, 800);
             this.boardPanel.TabIndex = 0;
+            // 
+            // endGameLbl
+            // 
+            this.endGameLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.endGameLbl.AutoSize = true;
+            this.endGameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endGameLbl.ForeColor = System.Drawing.Color.Maroon;
+            this.endGameLbl.Location = new System.Drawing.Point(242, 338);
+            this.endGameLbl.Name = "endGameLbl";
+            this.endGameLbl.Size = new System.Drawing.Size(281, 55);
+            this.endGameLbl.TabIndex = 31;
+            this.endGameLbl.Text = "Game Over";
+            this.endGameLbl.Visible = false;
             // 
             // QueenB
             // 
@@ -225,7 +242,7 @@ namespace Ghess
             this.KnightB2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KnightB2.BackgroundImage = global::Ghess.Properties.Resources.KnightB;
             this.KnightB2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.KnightB2.Location = new System.Drawing.Point(579, 44);
+            this.KnightB2.Location = new System.Drawing.Point(577, 44);
             this.KnightB2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KnightB2.Name = "KnightB2";
             this.KnightB2.Size = new System.Drawing.Size(87, 87);
@@ -255,7 +272,7 @@ namespace Ghess
             this.RookB2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.RookB2.BackgroundImage = global::Ghess.Properties.Resources.RookB;
             this.RookB2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.RookB2.Location = new System.Drawing.Point(667, 44);
+            this.RookB2.Location = new System.Drawing.Point(666, 44);
             this.RookB2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RookB2.Name = "RookB2";
             this.RookB2.Size = new System.Drawing.Size(87, 87);
@@ -390,7 +407,7 @@ namespace Ghess
             this.PawnB8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PawnB8.BackgroundImage = global::Ghess.Properties.Resources.PawnB;
             this.PawnB8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PawnB8.Location = new System.Drawing.Point(667, 133);
+            this.PawnB8.Location = new System.Drawing.Point(666, 133);
             this.PawnB8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PawnB8.Name = "PawnB8";
             this.PawnB8.Size = new System.Drawing.Size(87, 87);
@@ -420,7 +437,7 @@ namespace Ghess
             this.PawnW7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PawnW7.BackgroundImage = global::Ghess.Properties.Resources.PawnW;
             this.PawnW7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PawnW7.Location = new System.Drawing.Point(579, 578);
+            this.PawnW7.Location = new System.Drawing.Point(577, 578);
             this.PawnW7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PawnW7.Name = "PawnW7";
             this.PawnW7.Size = new System.Drawing.Size(87, 87);
@@ -525,7 +542,7 @@ namespace Ghess
             this.KnightW2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.KnightW2.BackgroundImage = global::Ghess.Properties.Resources.KnightW;
             this.KnightW2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.KnightW2.Location = new System.Drawing.Point(579, 666);
+            this.KnightW2.Location = new System.Drawing.Point(578, 666);
             this.KnightW2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.KnightW2.Name = "KnightW2";
             this.KnightW2.Size = new System.Drawing.Size(87, 87);
@@ -570,7 +587,7 @@ namespace Ghess
             this.RookW2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.RookW2.BackgroundImage = global::Ghess.Properties.Resources.RookW;
             this.RookW2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.RookW2.Location = new System.Drawing.Point(667, 666);
+            this.RookW2.Location = new System.Drawing.Point(666, 666);
             this.RookW2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RookW2.Name = "RookW2";
             this.RookW2.Size = new System.Drawing.Size(87, 87);
@@ -904,6 +921,8 @@ namespace Ghess
             // chessPanel
             // 
             this.chessPanel.BackColor = System.Drawing.Color.Transparent;
+            this.chessPanel.Controls.Add(this.giveUpWbtn);
+            this.chessPanel.Controls.Add(this.giveUpBbtn);
             this.chessPanel.Controls.Add(this.returnBtn);
             this.chessPanel.Controls.Add(this.timeWLbl);
             this.chessPanel.Controls.Add(this.timeBLbl);
@@ -915,6 +934,36 @@ namespace Ghess
             this.chessPanel.Name = "chessPanel";
             this.chessPanel.Size = new System.Drawing.Size(1459, 834);
             this.chessPanel.TabIndex = 2;
+            // 
+            // giveUpWbtn
+            // 
+            this.giveUpWbtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.giveUpWbtn.BackgroundImage = global::Ghess.Properties.Resources.wood_png_20;
+            this.giveUpWbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.giveUpWbtn.ForeColor = System.Drawing.Color.Tomato;
+            this.giveUpWbtn.Location = new System.Drawing.Point(1209, 698);
+            this.giveUpWbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.giveUpWbtn.Name = "giveUpWbtn";
+            this.giveUpWbtn.Size = new System.Drawing.Size(100, 50);
+            this.giveUpWbtn.TabIndex = 11;
+            this.giveUpWbtn.Text = "Give up";
+            this.giveUpWbtn.UseVisualStyleBackColor = true;
+            this.giveUpWbtn.Click += new System.EventHandler(this.giveUpWbtn_Click);
+            // 
+            // giveUpBbtn
+            // 
+            this.giveUpBbtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.giveUpBbtn.BackgroundImage = global::Ghess.Properties.Resources.wood_png_20;
+            this.giveUpBbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.giveUpBbtn.ForeColor = System.Drawing.Color.Tomato;
+            this.giveUpBbtn.Location = new System.Drawing.Point(1209, 245);
+            this.giveUpBbtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.giveUpBbtn.Name = "giveUpBbtn";
+            this.giveUpBbtn.Size = new System.Drawing.Size(100, 50);
+            this.giveUpBbtn.TabIndex = 10;
+            this.giveUpBbtn.Text = "Give up";
+            this.giveUpBbtn.UseVisualStyleBackColor = true;
+            this.giveUpBbtn.Click += new System.EventHandler(this.giveUpBbtn_Click);
             // 
             // returnBtn
             // 
@@ -949,7 +998,7 @@ namespace Ghess
             this.timeBLbl.AutoSize = true;
             this.timeBLbl.Font = new System.Drawing.Font("Century Gothic", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeBLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.timeBLbl.Location = new System.Drawing.Point(1193, 114);
+            this.timeBLbl.Location = new System.Drawing.Point(1203, 101);
             this.timeBLbl.Name = "timeBLbl";
             this.timeBLbl.Size = new System.Drawing.Size(78, 34);
             this.timeBLbl.TabIndex = 3;
@@ -976,7 +1025,7 @@ namespace Ghess
             this.stopBBtn.BackgroundImage = global::Ghess.Properties.Resources.wood_png_20;
             this.stopBBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stopBBtn.ForeColor = System.Drawing.Color.Peru;
-            this.stopBBtn.Location = new System.Drawing.Point(1199, 166);
+            this.stopBBtn.Location = new System.Drawing.Point(1209, 163);
             this.stopBBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.stopBBtn.Name = "stopBBtn";
             this.stopBBtn.Size = new System.Drawing.Size(100, 50);
@@ -1011,7 +1060,7 @@ namespace Ghess
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.Color.SandyBrown;
             this.dataGridView1.Location = new System.Drawing.Point(393, 193);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -1033,7 +1082,7 @@ namespace Ghess
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // Form1
+            // Chess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1042,11 +1091,13 @@ namespace Ghess
             this.Controls.Add(this.chessPanel);
             this.Controls.Add(this.menupanel);
             this.Controls.Add(this.playerlistPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
+            this.Name = "Chess";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Chess Game";
             this.boardPanel.ResumeLayout(false);
+            this.boardPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QueenB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KingB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BishopB1)).EndInit();
@@ -1153,6 +1204,9 @@ namespace Ghess
         private System.Windows.Forms.Label timeWLbl;
         private System.Windows.Forms.Button returnBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label endGameLbl;
+        private System.Windows.Forms.Button giveUpWbtn;
+        private System.Windows.Forms.Button giveUpBbtn;
     }
 }
 

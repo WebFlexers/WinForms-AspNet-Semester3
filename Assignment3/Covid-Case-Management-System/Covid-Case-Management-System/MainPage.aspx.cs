@@ -25,6 +25,7 @@ namespace Covid_Case_Management_System
               }
         }
 
+        #region controlsEvents
         protected void OnRowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = e.NewEditIndex;
@@ -87,7 +88,7 @@ namespace Covid_Case_Management_System
             mydatahandler = new DataHandler();
             mydatahandler.SearchData(GridView1, txtSearch);
         }
-
+        #endregion
     }
 
     public class DataHandler

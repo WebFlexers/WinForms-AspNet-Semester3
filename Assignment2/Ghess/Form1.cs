@@ -13,13 +13,13 @@ using System.Data.SqlClient;
 
 namespace Ghess
 {
-    public partial class Form1 : Form
+    public partial class Chess : Form
     {
         private Point point;
         bool move,stopBisActive,stopWisActive;
         int totalSeconds,hoursInput,minutesInput,secondsInput,timeW,timeB;
         DataReader mydatareader;
-        public Form1()
+        public Chess()
         {
             InitializeComponent();
 
@@ -35,40 +35,40 @@ namespace Ghess
        
 
             if (board0.Checked && Player1Txtb.TextLength >= 1 && Player2Txtb.TextLength >= 1)
-                {
-                    boardPanel.BackgroundImage = Properties.Resources.board_0;
-                    flag = true;
-                }
-                else if (board1.Checked && Player1Txtb.TextLength >= 1 && Player2Txtb.TextLength >= 1)
-                {
-                    boardPanel.BackgroundImage = Properties.Resources.board_1;
-                    flag = true;
+            {
+                boardPanel.BackgroundImage = Properties.Resources.board_0;
+                flag = true;
+            }
+            else if (board1.Checked && Player1Txtb.TextLength >= 1 && Player2Txtb.TextLength >= 1)
+            {
+                boardPanel.BackgroundImage = Properties.Resources.board_1;
+                flag = true;
 
-                }
-                else if (board2.Checked && Player1Txtb.TextLength >= 1 && Player2Txtb.TextLength >= 1)
-                {
-                    boardPanel.BackgroundImage = Properties.Resources.board_2;
-                    flag = true;
+            }
+            else if (board2.Checked && Player1Txtb.TextLength >= 1 && Player2Txtb.TextLength >= 1)
+            {
+                boardPanel.BackgroundImage = Properties.Resources.board_2;
+                flag = true;
 
-                }
-                else if (board3.Checked && Player1Txtb.TextLength >= 1 && Player2Txtb.TextLength >= 1)
-                {
-                    boardPanel.BackgroundImage = Properties.Resources.board_3;
-                    flag = true;
+            }
+            else if (board3.Checked && Player1Txtb.TextLength >= 1 && Player2Txtb.TextLength >= 1)
+            {
+                 boardPanel.BackgroundImage = Properties.Resources.board_3;
+                 flag = true;
 
-                }
-                else
-                {
-                    error.Visible = true;
+            }
+            else
+            {
+                 error.Visible = true;
 
-                }
+            }
 
             try
             {
                 hoursInput = Int32.Parse(hoursTxtB.Text);
                 minutesInput = Int32.Parse(minutesTxtB.Text);
                 secondsInput = Int32.Parse(secondsTxtB.Text);
-                totalSeconds = (hoursInput * 60 * 60) + (minutesInput * 60) + (secondsInput); //convert to total seconds
+                totalSeconds = (hoursInput * 60 * 60) + (minutesInput * 60) + (secondsInput);
 
                 int hours = totalSeconds / 3600; //convert to the actual time.
                 int min = (totalSeconds - (hours * 3600)) / 60;
@@ -91,7 +91,8 @@ namespace Ghess
                 menupanel.Visible = false;
                 chessPanel.Visible = true;
                 mydataentry.InsertData(Player1Txtb.Text, Player2Txtb.Text, "Data Source = chessDB.db;Version=3;");
-
+                stopBisActive = true;
+                stopWisActive = false;
 
             }
 
@@ -116,8 +117,13 @@ namespace Ghess
                 sec = (timeW - (hours * 3600) - (min * 60));
                 timeWLbl.Text = hours.ToString() + ":" + min.ToString() + ":" + sec.ToString();
             }
-
-           
+            else
+            {
+                endGameLbl.Visible = true;
+                timer1.Enabled = false;
+                stopBisActive = false;
+                stopWisActive = false;
+            }
 
         }
 
@@ -138,6 +144,23 @@ namespace Ghess
             timer1.Enabled = false;
             menupanel.Visible = true;
             chessPanel.Visible = false;
+            stopBisActive = false;
+            stopWisActive = false;
+            endGameLbl.Visible = false;
+        }
+
+        private void giveUpBbtn_Click(object sender, EventArgs e)
+        {
+            endGameLbl.Visible = true;
+            timer1.Enabled = false;
+            stopBisActive = false;
+            stopWisActive = false;
+        }
+
+        private void giveUpWbtn_Click(object sender, EventArgs e)
+        {
+            endGameLbl.Visible = true;
+            timer1.Enabled = false;
             stopBisActive = false;
             stopWisActive = false;
         }
@@ -197,11 +220,9 @@ namespace Ghess
        
         private void PawnW1_MouseDown(object sender, MouseEventArgs e)
         {
-            PictureBox pb = sender as PictureBox;
-            pb.BringToFront();
+            ((PictureBox)sender).BringToFront();
             point = e.Location;
             move = true;
-            
         }
 
         private void PawnW1_MouseUp(object sender, MouseEventArgs e)
