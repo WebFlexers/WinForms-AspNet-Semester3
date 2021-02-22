@@ -77,8 +77,8 @@ namespace Covid_Case_Management_System
             string Date = dateBox.Text.ToString();
             newCovidCase = new CovidCase(FirstName, LastName, PhoneNumber, Gender, Age, Address, Deseases, Date);
             mydatahandler = new DataHandler();
-            mydatahandler.InsertData(newCovidCase);
-            mydatahandler.BindData(GridView1);
+            mydatahandler.InsertData(newCovidCase); //inserts data
+            mydatahandler.BindData(GridView1); 
 
 
         }
@@ -118,7 +118,7 @@ namespace Covid_Case_Management_System
         public void InsertData(CovidCase newCovidCase)
         {
             Model1Container query = new Model1Container();
-            newCovidCase ncc = new newCovidCase();
+            newCovidCase ncc = new newCovidCase(); //ncc is an object reference to the table of the database
             ncc.FirstName = newCovidCase.FirstName;
             ncc.LastName = newCovidCase.LastName;
             ncc.PhoneNumber = newCovidCase.PhoneNumber;
@@ -126,12 +126,12 @@ namespace Covid_Case_Management_System
             ncc.Age = Int32.Parse((newCovidCase.Age));
             ncc.Address = newCovidCase.Address;
             ncc.Deseases = newCovidCase.Deseases;
-            ncc.Date = newCovidCase.Date;
+            ncc.Date = newCovidCase.Date;   
             query.newCovidCases.Add(ncc);
             query.SaveChanges();
         }
 
-        //reloads the data in the gridview
+        //reloads/refreshes the data in the gridview
         public void BindData(GridView aGridView)
         {
             SqlConnection mysqlconnection = ConnectToDatabase();
