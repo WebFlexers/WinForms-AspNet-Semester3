@@ -25,6 +25,10 @@ namespace Ghess
 
             menupanel.Visible = true;
             chessPanel.Visible = false;
+            foreach (Piece piece in boardPanel.Controls.OfType<Piece>())
+            {
+                piece.InitialLocation = piece.Location; //saves the location of the pieces
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -88,6 +92,10 @@ namespace Ghess
             
             if (flag)
             {
+                foreach (Piece piece in boardPanel.Controls.OfType<Piece>())
+                {
+                    piece.Location = piece.InitialLocation; //resets the location of the pieces
+                }
                 menupanel.Visible = false;
                 chessPanel.Visible = true;
                 mydataentry.InsertData(Player1Txtb.Text, Player2Txtb.Text, "Data Source = chessDB.db;Version=3;");
@@ -237,6 +245,12 @@ namespace Ghess
                 ((PictureBox)sender).Location = new Point(((PictureBox)sender).Left + e.X - point.X, ((PictureBox)sender).Top + e.Y - point.Y);
             }
         }
-
+        public class Piece : PictureBox
+        {
+          public  Point InitialLocation { get; set; }
+          
+        }
     }
+
 }
+
