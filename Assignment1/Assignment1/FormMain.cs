@@ -20,6 +20,8 @@ namespace Assignment1
             Responsive = new Responsive(this);
             prevFormWindowState = this.WindowState;
             this.WindowState = FormWindowState.Maximized;
+
+            GameSettings.Players = Serializer.DeserializePlayers();
         }
 
         private void FormMain_Load(object sender, EventArgs e)

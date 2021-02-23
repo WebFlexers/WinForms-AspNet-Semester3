@@ -30,6 +30,8 @@ namespace Assignment1
             { 
                 Path = filePath;
                 Player = new WindowsMediaPlayer();
+                if (!IsMusicOn)
+                    Player.settings.mute = true;
                 Player.settings.volume = 60;
                 Player.URL = Path;
                 Player.settings.setMode("loop", true);

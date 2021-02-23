@@ -16,10 +16,10 @@ namespace Assignment1
         static GameSettings()
         {
             ImageDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Images");
-            for (int i = 1; i <= 10; i++)
-            {
-                Players.Add(new Player("Jack"+i, i+9, new TimeSpan(i, i, i)));
-            }
+            //for (int i = 1; i <= 10; i++)
+            //{
+            //    Players.Add(new Player("Jack"+i, i+9, new TimeSpan(i, i, i)));
+            //}
         }
 
         public static void ResetImagePath()

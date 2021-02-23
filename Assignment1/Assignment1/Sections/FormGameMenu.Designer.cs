@@ -29,6 +29,7 @@ namespace Assignment1.Sections
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGameMenu));
             this.labelTime = new System.Windows.Forms.Label();
             this.panelButtons = new Assignment1.DoubleBufferPanel();
             this.buttonMenu = new System.Windows.Forms.Button();
@@ -135,6 +136,7 @@ namespace Assignment1.Sections
             this.Controls.Add(this.labelTime);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormGameMenu";
             this.Padding = new System.Windows.Forms.Padding(28, 45, 28, 70);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

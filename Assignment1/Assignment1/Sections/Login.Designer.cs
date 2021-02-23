@@ -29,12 +29,15 @@ namespace Assignment1.Sections
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.labelChooseImages = new System.Windows.Forms.Label();
             this.pictureBoxPlay = new System.Windows.Forms.PictureBox();
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
+            this.speaker = new Assignment1.Speaker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speaker)).BeginInit();
             this.SuspendLayout();
             // 
             // labelChooseImages
@@ -88,12 +91,25 @@ namespace Assignment1.Sections
             this.textBoxName.Size = new System.Drawing.Size(400, 44);
             this.textBoxName.TabIndex = 5;
             // 
+            // speaker
+            // 
+            this.speaker.BackColor = System.Drawing.Color.Transparent;
+            this.speaker.Image = ((System.Drawing.Image)(resources.GetObject("speaker.Image")));
+            this.speaker.Location = new System.Drawing.Point(1152, 8);
+            this.speaker.Margin = new System.Windows.Forms.Padding(8);
+            this.speaker.Name = "speaker";
+            this.speaker.Size = new System.Drawing.Size(40, 40);
+            this.speaker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.speaker.TabIndex = 18;
+            this.speaker.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Assignment1.Properties.Resources.University_of_Piraeus_Banner;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.speaker);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.pictureBoxPlay);
@@ -103,6 +119,7 @@ namespace Assignment1.Sections
             this.Size = new System.Drawing.Size(1200, 800);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speaker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,5 +131,6 @@ namespace Assignment1.Sections
         private System.Windows.Forms.PictureBox pictureBoxPlay;
         private System.Windows.Forms.PictureBox pictureBoxBack;
         private System.Windows.Forms.TextBox textBoxName;
+        private Speaker speaker;
     }
 }

@@ -64,7 +64,6 @@
     <Compile Include="CustomControl\DoubleBufferPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomControl\IPlayer.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +115,7 @@
     <Compile Include="Sections\Scoreboard.Designer.cs">
       <DependentUpon>Scoreboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Serializer.cs" />
     <Compile Include="Sound.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

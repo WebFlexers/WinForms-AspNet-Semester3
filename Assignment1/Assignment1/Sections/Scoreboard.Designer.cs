@@ -32,10 +32,12 @@ namespace Assignment1.Sections
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Scoreboard));
             this.labelDisplayUsername = new System.Windows.Forms.Label();
             this.pictureBoxExit = new System.Windows.Forms.PictureBox();
-            this.champion = new Assignment1.Champion();
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonPrev = new System.Windows.Forms.Button();
+            this.speaker = new Assignment1.Speaker();
+            this.champion = new Assignment1.Champion();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speaker)).BeginInit();
             this.SuspendLayout();
             // 
             // labelDisplayUsername
@@ -67,6 +69,54 @@ namespace Assignment1.Sections
             this.pictureBoxExit.MouseEnter += new System.EventHandler(this.pictureBoxExit_MouseEnter);
             this.pictureBoxExit.MouseLeave += new System.EventHandler(this.pictureBoxExit_MouseLeave);
             // 
+            // buttonNext
+            // 
+            this.buttonNext.BackColor = System.Drawing.Color.Transparent;
+            this.buttonNext.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonNext.FlatAppearance.BorderSize = 0;
+            this.buttonNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(86)))), ((int)(((byte)(54)))));
+            this.buttonNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(86)))), ((int)(((byte)(54)))));
+            this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNext.Font = new System.Drawing.Font("Marlett", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.buttonNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(216)))));
+            this.buttonNext.Location = new System.Drawing.Point(1004, 729);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(45, 45);
+            this.buttonNext.TabIndex = 22;
+            this.buttonNext.Text = "4";
+            this.buttonNext.UseVisualStyleBackColor = false;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            // 
+            // buttonPrev
+            // 
+            this.buttonPrev.BackColor = System.Drawing.Color.Transparent;
+            this.buttonPrev.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPrev.FlatAppearance.BorderSize = 0;
+            this.buttonPrev.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(86)))), ((int)(((byte)(54)))));
+            this.buttonPrev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(86)))), ((int)(((byte)(54)))));
+            this.buttonPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrev.Font = new System.Drawing.Font("Marlett", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.buttonPrev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(216)))));
+            this.buttonPrev.Location = new System.Drawing.Point(151, 729);
+            this.buttonPrev.Name = "buttonPrev";
+            this.buttonPrev.Size = new System.Drawing.Size(45, 45);
+            this.buttonPrev.TabIndex = 23;
+            this.buttonPrev.Text = "3";
+            this.buttonPrev.UseVisualStyleBackColor = false;
+            this.buttonPrev.Click += new System.EventHandler(this.buttonPrev_Click);
+            // 
+            // speaker
+            // 
+            this.speaker.BackColor = System.Drawing.Color.Transparent;
+            this.speaker.Image = ((System.Drawing.Image)(resources.GetObject("speaker.Image")));
+            this.speaker.Location = new System.Drawing.Point(1152, 8);
+            this.speaker.Margin = new System.Windows.Forms.Padding(8);
+            this.speaker.Name = "speaker";
+            this.speaker.Size = new System.Drawing.Size(40, 40);
+            this.speaker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.speaker.TabIndex = 24;
+            this.speaker.TabStop = false;
+            // 
             // champion
             // 
             this.champion.BackColor = System.Drawing.Color.Transparent;
@@ -75,45 +125,10 @@ namespace Assignment1.Sections
             this.champion.Location = new System.Drawing.Point(393, 55);
             this.champion.Name = "champion";
             this.champion.Padding = new System.Windows.Forms.Padding(45);
+            this.champion.Player = null;
             this.champion.Size = new System.Drawing.Size(406, 335);
             this.champion.TabIndex = 0;
             this.champion.Visible = false;
-            // 
-            // buttonNext
-            // 
-            this.buttonNext.BackColor = System.Drawing.Color.Transparent;
-            this.buttonNext.FlatAppearance.BorderSize = 0;
-            this.buttonNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(86)))), ((int)(((byte)(54)))));
-            this.buttonNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(86)))), ((int)(((byte)(54)))));
-            this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNext.Font = new System.Drawing.Font("Marlett", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.buttonNext.ForeColor = System.Drawing.Color.DarkRed;
-            this.buttonNext.Location = new System.Drawing.Point(1118, 525);
-            this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(45, 45);
-            this.buttonNext.TabIndex = 22;
-            this.buttonNext.Text = "4";
-            this.buttonNext.UseVisualStyleBackColor = false;
-            this.buttonNext.Visible = false;
-            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
-            // 
-            // buttonPrev
-            // 
-            this.buttonPrev.BackColor = System.Drawing.Color.Transparent;
-            this.buttonPrev.FlatAppearance.BorderSize = 0;
-            this.buttonPrev.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(86)))), ((int)(((byte)(54)))));
-            this.buttonPrev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(86)))), ((int)(((byte)(54)))));
-            this.buttonPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPrev.Font = new System.Drawing.Font("Marlett", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.buttonPrev.ForeColor = System.Drawing.Color.DarkRed;
-            this.buttonPrev.Location = new System.Drawing.Point(35, 525);
-            this.buttonPrev.Name = "buttonPrev";
-            this.buttonPrev.Size = new System.Drawing.Size(45, 45);
-            this.buttonPrev.TabIndex = 23;
-            this.buttonPrev.Text = "3";
-            this.buttonPrev.UseVisualStyleBackColor = false;
-            this.buttonPrev.Visible = false;
-            this.buttonPrev.Click += new System.EventHandler(this.buttonPrev_Click);
             // 
             // Scoreboard
             // 
@@ -121,15 +136,18 @@ namespace Assignment1.Sections
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Assignment1.Properties.Resources.amphitheater;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.speaker);
             this.Controls.Add(this.buttonPrev);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.pictureBoxExit);
             this.Controls.Add(this.labelDisplayUsername);
             this.Controls.Add(this.champion);
+            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.DoubleBuffered = true;
             this.Name = "Scoreboard";
             this.Size = new System.Drawing.Size(1200, 800);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.speaker)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -141,5 +159,6 @@ namespace Assignment1.Sections
         private System.Windows.Forms.PictureBox pictureBoxExit;
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Button buttonPrev;
+        private Speaker speaker;
     }
 }

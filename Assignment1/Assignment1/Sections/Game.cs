@@ -26,7 +26,7 @@ namespace Assignment1.Sections
             Responsive.ScaleControls(newSize);
         }
 
-        List<string> ImagePaths { get; set; } = new List<string>();
+        List<string> ImagePaths { get; set; }
         Player player;
 
         public bool LoadGame(string username)
@@ -37,6 +37,7 @@ namespace Assignment1.Sections
             Card.AttemptsNum = 0;
             Card.OpenCardsCount = 0;
 
+            ImagePaths = new List<string>();
             if (LoadImages())
             {
                 player = new Player(username);
@@ -63,7 +64,7 @@ namespace Assignment1.Sections
                 MessageBox.Show(e.Message, "Can't start the game");
                 return false;
             }
-
+            
             // Pick 8 random images from the Image Directory
             List<string> randomizedImagePaths = new List<string>();
             Random rnd = new Random((int)DateTime.Now.Ticks);
@@ -126,11 +127,14 @@ namespace Assignment1.Sections
             Player existantPlayer = GameSettings.Players.Find(x => x.Username.Equals(player.Username));
             if (existantPlayer == null)
                 GameSettings.Players.Add(player);
-            else if (existantPlayer.Time < player.Time)
+            else if (player.Time < existantPlayer.Time)
                 existantPlayer = player;
 
             // Sort players by time (ascending)
             GameSettings.Players.Sort((x, y) => x.Time.CompareTo(y.Time));
+
+            // Serialize the players list
+            Serializer.SerializePlayers(GameSettings.Players);
 
             Sound.FadeInSong(Sound.Song.Victory, 100);
 
@@ -199,7 +203,7 @@ namespace Assignment1.Sections
 
             // Events
             Click += OnClick;
-        } 
+        }
 
         private void OnClick(object sender, EventArgs e)
         {

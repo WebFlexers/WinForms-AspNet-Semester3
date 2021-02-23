@@ -26,14 +26,18 @@ namespace Assignment1.Sections
 
         public void LoadScoreboard()
         {
+            // Remove existing player models
+            for (int i = this.Controls.Count - 1; i >= 0 ; i--)
+            {
+                if (this.Controls[i] is PlayerModel)
+                    this.Controls.RemoveAt(i);
+            }
+
             if (GameSettings.Players.Count > 0)
             {
                 champion.LoadChampion(GameSettings.Players[0]);
                 champion.Visible = true;
                 labelDisplayUsername.Visible = true;
-
-                if (GameSettings.Players.Count > 4)
-                    buttonNext.Show();
 
                 LoadPlayers();
             }
@@ -55,65 +59,39 @@ namespace Assignment1.Sections
                 PlayerModel model = new PlayerModel();
                 model.LoadPlayer(GameSettings.Players[i]);
                 model.Location = nextLocation;
-                model.Visible = false;
 
-                Responsive.StoreControl(model);
-                playerModels.Add(model);
-                this.Controls.Add(model);
+                if (!this.Controls.Contains(model))
+                {
+                    Responsive.StoreControl(model);
+                    playerModels.Add(model);
+                    this.Controls.Add(model);
+                } 
 
                 playerCounter++;
-
-                if (playerCounter >= 4)
-                    nextLocation = playerModels[playerCounter % 4].Location;
-                else
-                    nextLocation = new Point(DISTANCE * playerCounter + START_LOCATION_X, START_LOCATION_Y);
+                nextLocation = new Point(DISTANCE * playerCounter + START_LOCATION_X, START_LOCATION_Y);
             }
 
             ResizeUI(Screen.FromControl(this).Bounds.Size);
 
-            DisplayPlayerModels(0);
+            DisplayPlayerModels();
         }
 
-        private void DisplayPlayerModels(int startIndex)
+        private void DisplayPlayerModels()
         {
-            int playerCounter = 0;
-
-            // Make every player model invisible
-            foreach (PlayerModel model in this.Controls.OfType<PlayerModel>())
-                model.Hide();
-
-            // Show only 4 according to startIndex
-            for (int i = startIndex; i < playerModels.Count; i++)
-                if (playerCounter < 4)
-                {
-                    playerModels[i].Show();
-                    Console.WriteLine("----------------");
-                    Console.WriteLine(playerModels[i].Player.Username);
-                    Console.WriteLine("----------------");
-                    playerCounter++;
-                }
+            for (int i = 0; i < playerModels.Count; i++)
+                playerModels[i].Show();
         }
 
-        int startIndex = 0;
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            startIndex++;
-            DisplayPlayerModels(startIndex);
-            
-            if (playerModels.Count - startIndex < 4)
-                buttonNext.Hide();
-
-            buttonPrev.Show();
+            for (int i = 0; i < playerModels.Count; i++)
+                playerModels[i].Left -= DISTANCE + START_LOCATION_X;
         }
 
         private void buttonPrev_Click(object sender, EventArgs e)
         {
-            startIndex--;
-            DisplayPlayerModels(startIndex);
-
-            if (startIndex == 0)
-                buttonPrev.Hide();
-            buttonNext.Show();
+            for (int i = 0; i < playerModels.Count; i++)
+                playerModels[i].Left += DISTANCE + START_LOCATION_X;
         }
 
         #region Exit Button

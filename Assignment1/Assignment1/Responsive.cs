@@ -12,7 +12,6 @@ namespace Assignment1
     {
         Size initialContainerSize;
         Control.ControlCollection controls;
-        Dictionary<Control, Size> initialControlSizes = new Dictionary<Control, Size>();
         
         public Responsive(Form form)
         {
@@ -33,6 +32,17 @@ namespace Assignment1
             initialContainerSize = userControl.Size;
             controls = userControl.Controls;
             InitializeControlSizes();
+        }
+
+        public void UpdateControlPosition(Control control)
+        {
+            if (controlToContainerXRatios.ContainsKey(control))
+            {
+                Ratio controlToContainerX = new Ratio(control.Left, initialContainerSize.Width);
+                Ratio controlToContainerY = new Ratio(control.Top, initialContainerSize.Height);
+                controlToContainerXRatios[control] = controlToContainerX;
+                controlToContainerYRatios[control] = controlToContainerY;
+            }
         }
 
         private class Ratio
@@ -68,8 +78,6 @@ namespace Assignment1
 
         public void StoreControl(Control control)
         {
-            initialControlSizes.Add(control, control.Size);
-
             Ratio controlToContainerWidth = new Ratio(control.Width, initialContainerSize.Width);
             Ratio controlToContainerHeight = new Ratio(control.Height, initialContainerSize.Height);
             controlToContainerWidthRatios.Add(control, controlToContainerWidth);

@@ -176,6 +176,7 @@ namespace Assignment1
             // 
             this.scoreboard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("scoreboard.BackgroundImage")));
             this.scoreboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.scoreboard.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.scoreboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scoreboard.Location = new System.Drawing.Point(0, 0);
             this.scoreboard.Name = "scoreboard";
@@ -196,8 +197,10 @@ namespace Assignment1
             this.Controls.Add(this.scoreboard);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Memory Game";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResizeEnd += new System.EventHandler(this.FormMain_ResizeEnd);
             this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
